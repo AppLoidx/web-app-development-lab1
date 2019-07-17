@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.svg-container {
+    text-align: center;
+}
+.svg-graph{
+    position: relative;
+    margin: 0 auto;
+    background-color: antiquewhite;
+}
