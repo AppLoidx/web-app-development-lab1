@@ -2,6 +2,49 @@ body{
     margin: 0;
     padding: 0;
 }
+* {
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    height: 100%;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex: 0 0 auto;
+}
+
+.centered{
+    text-align: center;
+}
+
+.centered > *{
+    margin: 0 auto;
+}
+
+.header{
+    font-family: Lobster, sans-serif;
+    font-size: x-large;
+    color: white;
+    padding: 10px;
+    background-color: crimson;
+}
+.header > span{
+    margin: 0 20px;
+}
+.student-name{
+    float: right;
+}
 
 .svg-container {
     text-align: center;
@@ -10,4 +53,24 @@ body{
     position: relative;
     margin: 0 auto;
     background-color: antiquewhite;
+}
+
+footer{
+    background-color: crimson;
+    align-self: end;
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.github-icon{
+    margin-top: 10px;
+    font-size: xx-large;
+}
+.fa-github{
+    color: white;
+}
+.student-name-footer{
+    font-family: Lobster, sans-serif;
+    font-size: medium;
+    color: white;
 }
