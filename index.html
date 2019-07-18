@@ -7,6 +7,7 @@
     <title>SVG</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="table.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
 
     <!--    Font Awesome-->
@@ -111,7 +112,7 @@
             <div class="form-inputs">
                 <label for="r-value-select" class="form-label">R: </label>
                 <select id="r-value-select" name="r_value">
-                    <option value="">1</option>
+                    <option value="1">1</option>
                     <option>1.5</option>
                     <option>2</option>
                     <option>2.5</option>
@@ -123,7 +124,7 @@
 
                 <label for="y-value-select" class="form-label">Y: </label>
                 <select id="y-value-select" name="y_value">
-                    <option value="">-4</option>
+                    <option value="-4">-4</option>
                     <option>-3</option>
                     <option>-2</option>
                     <option>-1</option>
@@ -142,6 +143,46 @@
             </div>
 
         </form>
+
+        <div class="table-wrapper">
+
+            <div class="table">
+                <div class="table-header">
+                    <div class="header__item"><a id="x-table" class="filter__link" href="#">X</a></div>
+                    <div class="header__item"><a id="y-table" class="filter__link filter__link--number" href="#">Y</a></div>
+                    <div class="header__item"><a id="r-table" class="filter__link filter__link--number" href="#">R</a></div>
+                    <div class="header__item"><a id="result-table" class="filter__link filter__link--number" href="#">result</a></div>
+                    <div class="header__item"><a id="time-table" class="filter__link filter__link--number" href="#">Time</a></div>
+                    <div class="header__item"><a id="cr-time-table" class="filter__link filter__link--number" href="#">Current Time</a></div>
+                </div>
+                <div class="table-content">
+                    <div class="table-row">
+                        <div class="table-data">2</div>
+                        <div class="table-data">0</div>
+                        <div class="table-data">4</div>
+                        <div class="table-data">True</div>
+                        <div class="table-data">00:30:02</div>
+                        <div class="table-data">23.1266</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-data">0</div>
+                        <div class="table-data">0</div>
+                        <div class="table-data">0</div>
+                        <div class="table-data">True</div>
+                        <div class="table-data">15:56:44</div>
+                        <div class="table-data">20.9808</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-data">0</div>
+                        <div class="table-data">-5</div>
+                        <div class="table-data">0</div>
+                        <div class="table-data">False</div>
+                        <div class="table-data">16:15:10</div>
+                        <div class="table-data">126.1234</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
         <footer>

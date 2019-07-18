@@ -61,6 +61,7 @@ body {
 
 .data-send-form{
     float: right;
+    margin: 0 auto;
 }
 
 
@@ -101,6 +102,14 @@ button {
     transition: background-color 0.1s linear;
 }
 
+.form-buttons{
+    margin: 10px;
+    text-align: center;
+}
+.form-buttons > button{
+    margin: 3px 10px;
+}
+
 
 
 footer{
@@ -131,4 +140,25 @@ footer{
 
 .is-invalid{
     border-color: red;
+}
+
+.svg-figure{
+
+}
+
+.svg-figure:hover{
+    fill: orangered;
+}
+
+
+.triangle-figure{
+
+}
+
+.circle-figure{
+
+}
+
+.rectangle-figure{
+
 }
