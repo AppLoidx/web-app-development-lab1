@@ -18,6 +18,9 @@ body {
 
 .content {
     flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
 }
 
 .footer {
@@ -53,7 +56,52 @@ body {
     position: relative;
     margin: 0 auto;
     background-color: antiquewhite;
+
 }
+
+.data-send-form{
+    float: right;
+}
+
+
+.send-button{
+    background-color: rgb( 43, 153, 91 );
+    border: 1px solid rgb( 33, 126, 74 );
+}
+
+.send-button:hover {
+    background-color: rgb( 75, 183, 141 );
+}
+.clear-button{
+    background-color: rgb(187, 11, 16);
+    border: 1px solid rgb(154, 12, 17);
+}
+
+.clear-button:hover {
+    background-color: rgb(225, 12, 19);
+}
+
+button {
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.08);
+    color: #fff;
+    width:100px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 8px 16px;
+    /*margin: 20px auto;*/
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: background-color 0.1s linear;
+    -moz-transition: background-color 0.1s linear;
+    -o-transition: background-color 0.1s linear;
+    transition: background-color 0.1s linear;
+}
+
+
 
 footer{
     background-color: crimson;
@@ -73,4 +121,14 @@ footer{
     font-family: Lobster, sans-serif;
     font-size: medium;
     color: white;
+}
+
+.is-valid{
+    border-color: green;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.is-invalid{
+    border-color: red;
 }
