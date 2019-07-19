@@ -21,7 +21,36 @@ body {
     display: flex;
     flex-direction: row;
     padding: 10px;
+    min-width: 708px;
 }
+
+@media (min-width:100px)  {
+    /* smartphones, iPhone, portrait 480x320 phones */
+    .content{
+        flex-direction: column;
+        text-align: center;
+    }
+    .wrapper{
+        width: 100%;
+    }
+    .table-wrapper{
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+@media (min-width:481px)  {
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+
+}
+@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:1326px)  {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .content{
+        flex-direction: row;
+    }
+}
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }
 
 .footer {
     flex: 0 0 auto;
@@ -161,4 +190,9 @@ footer{
 
 .rectangle-figure{
 
+}
+
+#target-dot{
+    fill: red;
+    transition: all 1s;
 }
