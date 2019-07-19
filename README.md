@@ -33,4 +33,4 @@ Basic Example: https://github.com/KaluginaMarina/Internet-Applications-Developme
 
 ![](https://github.com/AppLoidx/web-app-development-lab1/blob/master/resources/screenshot/kaiki-chan-sleeping-zzz.png?raw=true)
 
-<i>Art from [Polyganya](https://github.com/band-of-four/polygonya)</i>
+<i>Art from [Polygonya](https://github.com/band-of-four/polygonya)</i>
