@@ -20,27 +20,45 @@
     <script src="jquery-3.4.1.js"></script>
     <script>
 
+        const checkArea = function(){
+            let yStr = $("#y-value-select").val().replace(",",".");
+            let x = Number($("#x-value-select").val());
+            let y = Number(yStr);
+            let r = Number($("#r-value-select").val());
 
+            return (x >= -r / 2 && x <= 0 && y <= r && y >= 0) || (y >= (-x / 2 - r / 2) && y <= 0 && x <= 0) || ((x * x + y * y) <= r * r /4 && x >= 0 && y >= 0);
+        };
 
         const onYInpChange = function(){
             let elemY = $("#y-value-select");
 
             let dotTarget = $("#target-dot");
-               let value = Number(elemY.val());
+                let numString = elemY.val().replace(",",".");
+                console.log("value: " + numString);
+               let value = Number(numString);
                if (value < -3 ||  value > 5 || isNaN(value) || /[\s]+/.test(elemY.val()) || elemY.val()===""){
                    elemY.removeClass().addClass("is-invalid");
                    dotTarget.attr("r", 0);
+                   $('#menhera').attr("src","resources/invalid.jpg");
 
                    return false;
                }else {
+                   document.querySelector('#error-log').textContent = " ";
                    elemY.removeClass().addClass("is-valid");
                    let elemR = $("#r-value-select");
                    let calculatedX = 2 * (Number($("#x-value-select").val()) * 50 / Number(elemR.val())) + 150;
-                   let calculatedY = -(((Number(elemY.val()) * 50 * 2) / Number(elemR.val())) - 150);
+                   let calculatedY = -(((Number(elemY.val().replace(",",".")) * 50 * 2) / Number(elemR.val())) - 150);
                    console.log("x: " + calculatedX + "\ny: " + calculatedY);
                    dotTarget.attr("r", 3);
                    dotTarget.attr("cy", calculatedY);
                    dotTarget.attr("cx", calculatedX);
+
+                       if (checkArea()){
+                           $('#menhera').attr("src","resources/correct.jpg");
+                       } else {
+                           $('#menhera').attr("src" , "resources/incorrect.jpg");
+                       }
+
                    return true;
                }
            };
@@ -48,9 +66,10 @@
            const submit = function(e) {
                e.preventDefault();
                 if (!onYInpChange()){
-                    alert('Введите соответствующее значение Y');
+                    document.querySelector('#error-log').textContent = "Значение Y должно быть в диапазоне [-3;5]";
                     return;
                 }
+
                    const formData = new FormData(document.querySelector('#form'));
                    fetch('php/check.php', {
                        method: 'POST',
@@ -176,6 +195,10 @@
             <div class="form-buttons">
                 <button class="send-button" type="submit" id="submitButton">Отправить</button>
                 <button class="clear-button" type="button" id="clearButton">Очистить</button>
+            </div>
+            <span id="error-log" style="color: red"> </span>
+            <div class="img-wrapper" >
+                <img src="resources/default.jpg" id="menhera" style="width: 250px; height: 200px" alt=""/>
             </div>
 
         </form>

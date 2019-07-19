@@ -16,7 +16,7 @@
     }
 
     function check($x, $y, $r){
-        if (($x >= -$r/2 && $x <= 0 && $y <= $r && $y >= 0) || ($y >= (-$x/2 - $r/2) && $y <= 0 && $x <= 0) || (($x*$x + $y*$y) <= $r*$r && $x >= 0 && $y >= 0)){
+        if (($x >= -$r/2 && $x <= 0 && $y <= $r && $y >= 0) || ($y >= (-$x/2 - $r/2) && $y <= 0 && $x <= 0) || (($x*$x + $y*$y) <= $r*$r/4 && $x >= 0 && $y >= 0)){
             return "<span style='color: green'>True</span>";
         } else {
             return "<span style='color: red'>False</span>";
