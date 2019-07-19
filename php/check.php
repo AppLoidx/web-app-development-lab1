@@ -2,7 +2,8 @@
 <?php
     session_start();
 
-    $currentTime = date("H:i:s", strtotime('-1 hour'));
+    date_default_timezone_set('Europe/Moscow');
+    $currentTime = date("H:i:s");
     $start = microtime(true);
 
     $x = (int) str_replace(",", ".", $_POST['x_value']);

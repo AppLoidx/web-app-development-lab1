@@ -21,7 +21,6 @@ body {
     display: flex;
     flex-direction: row;
     padding: 10px;
-    min-width: 708px;
 }
 
 @media (min-width:100px)  {
@@ -30,12 +29,25 @@ body {
         flex-direction: column;
         text-align: center;
     }
-    .wrapper{
-        width: 100%;
-    }
     .table-wrapper{
         margin: 0 auto;
         text-align: center;
+        overflow-x: scroll;
+
+    }
+    .table{
+        overflow-x: auto;
+        width: 100vw;
+    }
+
+
+    .table-header{
+        overflow-x: auto
+    }
+
+    .form-inputs{
+        display: flex;
+        flex-direction: column;
     }
 }
 @media (min-width:481px)  {
@@ -47,6 +59,14 @@ body {
     /* tablet, landscape iPad, lo-res laptops ands desktops */
     .content{
         flex-direction: row;
+    }
+    .form-inputs{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .table{
+        width: 100%;
     }
 }
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
