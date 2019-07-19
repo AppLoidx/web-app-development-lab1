@@ -30,3 +30,7 @@
 Cheatsheet: [by Band of Four](https://github.com/band-of-four/cheatsheets/blob/master/Internet-Applications-Development/Lab1.md)
 
 Basic Example: https://github.com/KaluginaMarina/Internet-Applications-Development
+
+![](https://github.com/AppLoidx/web-app-development-lab1/blob/master/resources/screenshot/kaiki-chan-sleeping-zzz.png?raw=true)
+
+<i>Art from [Polygonya](https://github.com/band-of-four/polygonya)</i>
