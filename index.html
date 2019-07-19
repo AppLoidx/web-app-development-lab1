@@ -21,7 +21,7 @@
 
         const checkArea = function(){
             let yStr = $("#y-value-select").val().replace(",",".");
-            let x = Number($("#x-value-select").val());
+            let x = Number($("input[name=x_value]:checked").val());
             let y = Number(yStr);
             let r = Number($("#r-value-select").val());
 
@@ -45,7 +45,7 @@
                    document.querySelector('#error-log').textContent = " ";
                    elemY.removeClass().addClass("is-valid");
                    let elemR = $("#r-value-select");
-                   let calculatedX = 2 * (Number($("#x-value-select").val()) * 50 / Number(elemR.val())) + 150;
+                   let calculatedX = 2 * (Number($("input[name=x_value]:checked").val()) * 50 / Number(elemR.val())) + 150;
                    let calculatedY = -(((Number(elemY.val().replace(",",".")) * 50 * 2) / Number(elemR.val())) - 150);
                    console.log("x: " + calculatedX + "\ny: " + calculatedY);
                    dotTarget.attr("r", 3);
@@ -97,6 +97,8 @@
            document.addEventListener('DOMContentLoaded', function(){
                document.querySelector('#clearButton').addEventListener('click', clear);
            });
+
+
     </script>
 
     <div class="wrapper">
@@ -163,18 +165,20 @@
             <div class="form-inputs">
 
 
-                <label for="x-value-select" class="form-label">X: </label>
-                <select id="x-value-select" name="x_value">
-                    <option value="-4">-4</option>
-                    <option>-3</option>
-                    <option>-2</option>
-                    <option>-1</option>
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                </select>
+<!--                <label for="x-value-select" class="form-label">X: </label>-->
+<!--                <select id="x-value-select" name="x_value">-->
+<!--                    <option value="-4">-4</option>-->
+<!--                    <option>-3</option>-->
+<!--                    <option>-2</option>-->
+<!--                    <option>-1</option>-->
+<!--                    <option>0</option>-->
+<!--                    <option>1</option>-->
+<!--                    <option>2</option>-->
+<!--                    <option>3</option>-->
+<!--                    <option>4</option>-->
+<!--                </select>-->
+
+
 
                 <label for="y-value-select">Y: </label>
                 <input id="y-value-select" name="y_value" value="" type="text" placeholder="-3 ... 5" />
@@ -188,8 +192,21 @@
                     <option>3</option>
                 </select>
 
+
             </div>
 
+            <div class="radio-buttons">
+                <p>X: </p>
+                <p><label for="radio-button-1" class="radio-label">-4 </label><input class="radio-input" id="radio-button-1" name="x_value" type="radio" value="-4"></p>
+                <p><label for="radio-button-2" class="radio-label">-3 </label><input class="radio-input" id="radio-button-2" name="x_value" type="radio" value="-3"></p>
+                <p><label for="radio-button-3" class="radio-label">-2 </label><input class="radio-input" id="radio-button-3" name="x_value" type="radio" value="-2" checked></p>
+                <p><label for="radio-button-4" class="radio-label">-1 </label><input class="radio-input" id="radio-button-4" name="x_value" type="radio" value="-1"></p>
+                <p><label for="radio-button-5" class="radio-label">0 </label><input  class="radio-input" id="radio-button-5" name="x_value" type="radio" value="0" ></p>
+                <p><label for="radio-button-6" class="radio-label">1 </label><input  class="radio-input" id="radio-button-6" name="x_value" type="radio" value="1" ></p>
+                <p><label for="radio-button-7" class="radio-label">2 </label><input  class="radio-input" id="radio-button-7" name="x_value" type="radio" value="2" ></p>
+                <p><label for="radio-button-8" class="radio-label">3 </label><input  class="radio-input" id="radio-button-8" name="x_value" type="radio" value="3" ></p>
+                <p><label for="radio-button-9" class="radio-label">4 </label><input  class="radio-input" id="radio-button-9" name="x_value" type="radio" value="4" ></p>
+            </div>
 
             <div class="form-buttons">
                 <button class="send-button" type="submit" id="submitButton">Отправить</button>

@@ -65,6 +65,10 @@ body{
     margin: 0 auto;
 }
 
+.radio-buttons{
+    display: flex;
+    flex-direction: row;
+}
 
 .send-button{
     background-color: rgb( 43, 153, 91 );
@@ -190,3 +194,15 @@ footer{
         width: 100%;
     }
 }
+
+.radio-buttons > p{
+    padding: 0 2px;
+}
+.radio-input{
+    display: block;
+}
+
+.radio-label{
+    display: block;
+}
+
