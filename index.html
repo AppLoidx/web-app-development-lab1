@@ -20,27 +20,43 @@
     <script src="jquery-3.4.1.js"></script>
     <script>
 
-           const onXInpChange = function(){
-               let elem = $("#x-value-select");
-               let value = Number(elem.val());
 
-               if (value < -3 ||  value > 5 || isNaN(value) || /[\s]+/.test(elem.val())){
-                   elem.removeClass().addClass("is-invalid");
+
+        const onYInpChange = function(){
+            let elemY = $("#y-value-select");
+
+            let dotTarget = $("#target-dot");
+               let value = Number(elemY.val());
+               if (value < -3 ||  value > 5 || isNaN(value) || /[\s]+/.test(elemY.val()) || elemY.val()===""){
+                   elemY.removeClass().addClass("is-invalid");
+                   dotTarget.attr("r", 0);
+
+                   return false;
                }else {
-                   elem.removeClass().addClass("is-valid");
+                   elemY.removeClass().addClass("is-valid");
+                   let elemR = $("#r-value-select");
+                   let calculatedX = 2 * (Number($("#x-value-select").val()) * 50 / Number(elemR.val())) + 150;
+                   let calculatedY = -(((Number(elemY.val()) * 50 * 2) / Number(elemR.val())) - 150);
+                   console.log("x: " + calculatedX + "\ny: " + calculatedY);
+                   dotTarget.attr("r", 3);
+                   dotTarget.attr("cy", calculatedY);
+                   dotTarget.attr("cx", calculatedX);
+                   return true;
                }
            };
 
            const submit = function(e) {
                e.preventDefault();
-
+                if (!onYInpChange()){
+                    alert('Введите соответствующее значение Y');
+                    return;
+                }
                    const formData = new FormData(document.querySelector('#form'));
                    fetch('php/check.php', {
                        method: 'POST',
                        body: formData,
                    })
                        .then(ans => ans.text())
-                       .then(t => console.log(t))
                        .then(table => document.querySelector('#ans').innerHTML=table);
                };
 
@@ -48,6 +64,20 @@
 
            document.addEventListener('DOMContentLoaded', function(){
                document.querySelector('#submitButton').addEventListener('click', submit);
+           });
+
+           const clear = function(e) {
+               e.preventDefault();
+               fetch('php/clear.php', {
+                   method: 'POST',
+               })
+                   .then(ans => ans.text())
+                   .then(table => document.querySelector('#ans').innerHTML=table);
+
+           };
+
+           document.addEventListener('DOMContentLoaded', function(){
+               document.querySelector('#clearButton').addEventListener('click', clear);
            });
     </script>
 
@@ -105,25 +135,18 @@
                 <!-- third figure-->
                 <polygon class="svg-figure triangle-figure" points="50,150 150,150 150,200"
                          fill="yellow" fill-opacity="0.3" stroke="yellow"></polygon>
+
+                <circle r="0" cx="150" cy="150" id="target-dot"></circle>
+
             </svg>
         </div>
 
-        <form class="data-send-form" id="form">
+        <form class="data-send-form" id="form" oninput="onYInpChange()">
             <div class="form-inputs">
-                <label for="r-value-select" class="form-label">R: </label>
-                <select id="r-value-select" name="r_value">
-                    <option value="1">1</option>
-                    <option>1.5</option>
-                    <option>2</option>
-                    <option>2.5</option>
-                    <option>3</option>
-                </select>
 
-                <label for="x-value-select">X: </label>
-                <input id="x-value-select" name="x_value" type="text" placeholder="-3 ... 5" oninput="onXInpChange()"/>
 
-                <label for="y-value-select" class="form-label">Y: </label>
-                <select id="y-value-select" name="y_value">
+                <label for="x-value-select" class="form-label">X: </label>
+                <select id="x-value-select" name="x_value">
                     <option value="-4">-4</option>
                     <option>-3</option>
                     <option>-2</option>
@@ -134,17 +157,30 @@
                     <option>3</option>
                     <option>4</option>
                 </select>
+
+                <label for="y-value-select">Y: </label>
+                <input id="y-value-select" name="y_value" value="" type="text" placeholder="-3 ... 5" />
+
+                <label for="r-value-select" class="form-label">R: </label>
+                <select id="r-value-select" name="r_value">
+                    <option value="1">1</option>
+                    <option>1.5</option>
+                    <option>2</option>
+                    <option>2.5</option>
+                    <option>3</option>
+                </select>
+
             </div>
 
 
             <div class="form-buttons">
                 <button class="send-button" type="submit" id="submitButton">Отправить</button>
-                <button class="clear-button" type="button">Очистить</button>
+                <button class="clear-button" type="button" id="clearButton">Очистить</button>
             </div>
 
         </form>
 
-        <div class="table-wrapper">
+        <div class="table-wrapper" id="ans">
 
             <div class="table">
                 <div class="table-header">
@@ -153,34 +189,34 @@
                     <div class="header__item"><a id="r-table" class="filter__link filter__link--number" href="#">R</a></div>
                     <div class="header__item"><a id="result-table" class="filter__link filter__link--number" href="#">result</a></div>
                     <div class="header__item"><a id="time-table" class="filter__link filter__link--number" href="#">Time</a></div>
-                    <div class="header__item"><a id="cr-time-table" class="filter__link filter__link--number" href="#">Current Time</a></div>
+                    <div class="header__item"><a id="cr-time-table" class="filter__link filter__link--number" href="#">Benchmark</a></div>
                 </div>
-                <div class="table-content">
-                    <div class="table-row">
-                        <div class="table-data">2</div>
-                        <div class="table-data">0</div>
-                        <div class="table-data">4</div>
-                        <div class="table-data">True</div>
-                        <div class="table-data">00:30:02</div>
-                        <div class="table-data">23.1266</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">0</div>
-                        <div class="table-data">0</div>
-                        <div class="table-data">0</div>
-                        <div class="table-data">True</div>
-                        <div class="table-data">15:56:44</div>
-                        <div class="table-data">20.9808</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">0</div>
-                        <div class="table-data">-5</div>
-                        <div class="table-data">0</div>
-                        <div class="table-data">False</div>
-                        <div class="table-data">16:15:10</div>
-                        <div class="table-data">126.1234</div>
-                    </div>
-                </div>
+<!--                <div class="table-content">-->
+<!--                    <div class="table-row">-->
+<!--                        <div class="table-data">2</div>-->
+<!--                        <div class="table-data">0</div>-->
+<!--                        <div class="table-data">4</div>-->
+<!--                        <div class="table-data">True</div>-->
+<!--                        <div class="table-data">00:30:02</div>-->
+<!--                        <div class="table-data">23.1266</div>-->
+<!--                    </div>-->
+<!--                    <div class="table-row">-->
+<!--                        <div class="table-data">0</div>-->
+<!--                        <div class="table-data">0</div>-->
+<!--                        <div class="table-data">0</div>-->
+<!--                        <div class="table-data">True</div>-->
+<!--                        <div class="table-data">15:56:44</div>-->
+<!--                        <div class="table-data">20.9808</div>-->
+<!--                    </div>-->
+<!--                    <div class="table-row">-->
+<!--                        <div class="table-data">0</div>-->
+<!--                        <div class="table-data">-5</div>-->
+<!--                        <div class="table-data">0</div>-->
+<!--                        <div class="table-data">False</div>-->
+<!--                        <div class="table-data">16:15:10</div>-->
+<!--                        <div class="table-data">126.1234</div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </div>
