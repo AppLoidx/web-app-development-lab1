@@ -136,17 +136,18 @@ const checkArea = function(){
 
 ```js
 const onYInpChange = function(){
-    let elemY = $("#y-value-select");
+        let elemY = $("#y-value-select");
 
-    let dotTarget = $("#target-dot");
-       let value = Number(elemY.val().replace(",","."));
-       if (value < -3 ||  value > 5 || isNaN(value) || /[\s]+/.test(elemY.val()) || elemY.val()===""){
+        let dotTarget = $("#target-dot");
+        
+        let value = Number(elemY.val().replace(",","."));
+        if (value < -3 ||  value > 5 || isNaN(value) || /[\s]+/.test(elemY.val()) || elemY.val()===""){
            elemY.removeClass().addClass("is-invalid");
            dotTarget.attr("r", 0);
            $('#menhera').attr("src","resources/invalid.jpg");
 
            return false;
-       } else {
+        } else {
 
            document.querySelector('#error-log').textContent = " ";
            elemY.removeClass().addClass("is-valid");
@@ -166,8 +167,8 @@ const onYInpChange = function(){
            }
 
            return true;
-       }
-   };
+        }
+        };
 
 ```
 
