@@ -32,38 +32,38 @@
             let elemY = $("#y-value-select");
 
             let dotTarget = $("#target-dot");
-                let numString = elemY.val().replace(",",".");
-                console.log("value: " + numString);
-               let value = Number(numString);
+               let value = Number(elemY.val().replace(",","."));
                if (value < -3 ||  value > 5 || isNaN(value) || /[\s]+/.test(elemY.val()) || elemY.val()===""){
                    elemY.removeClass().addClass("is-invalid");
                    dotTarget.attr("r", 0);
                    $('#menhera').attr("src","resources/invalid.jpg");
 
                    return false;
-               }else {
+               } else {
+
                    document.querySelector('#error-log').textContent = " ";
                    elemY.removeClass().addClass("is-valid");
+
                    let elemR = $("#r-value-select");
                    let calculatedX = 2 * (Number($("input[name=x_value]:checked").val()) * 50 / Number(elemR.val())) + 150;
                    let calculatedY = -(((Number(elemY.val().replace(",",".")) * 50 * 2) / Number(elemR.val())) - 150);
-                   console.log("x: " + calculatedX + "\ny: " + calculatedY);
+
                    dotTarget.attr("r", 3);
                    dotTarget.attr("cy", calculatedY);
                    dotTarget.attr("cx", calculatedX);
 
-                       if (checkArea()){
-                           $('#menhera').attr("src","resources/correct.jpg");
-                       } else {
-                           $('#menhera').attr("src" , "resources/incorrect.jpg");
-                       }
+                   if (checkArea()){
+                       $('#menhera').attr("src","resources/correct.jpg");
+                   } else {
+                       $('#menhera').attr("src" , "resources/incorrect.jpg");
+                   }
 
                    return true;
                }
            };
 
            const submit = function(e) {
-               e.preventDefault();
+                e.preventDefault();
                 if (!onYInpChange()){
                     document.querySelector('#error-log').textContent = "Значение Y должно быть в диапазоне [-3;5]";
                     return;
@@ -163,22 +163,6 @@
 
         <form class="data-send-form" id="form" oninput="onYInpChange()">
             <div class="form-inputs">
-
-
-<!--                <label for="x-value-select" class="form-label">X: </label>-->
-<!--                <select id="x-value-select" name="x_value">-->
-<!--                    <option value="-4">-4</option>-->
-<!--                    <option>-3</option>-->
-<!--                    <option>-2</option>-->
-<!--                    <option>-1</option>-->
-<!--                    <option>0</option>-->
-<!--                    <option>1</option>-->
-<!--                    <option>2</option>-->
-<!--                    <option>3</option>-->
-<!--                    <option>4</option>-->
-<!--                </select>-->
-
-
 
                 <label for="y-value-select"><strong>Y: </strong></label>
                 <input id="y-value-select" name="y_value" value="" type="text" placeholder="-3 ... 5" />

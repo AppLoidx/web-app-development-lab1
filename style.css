@@ -153,6 +153,17 @@ footer{
     transition: all 1s;
 }
 
+.radio-buttons > p{
+    padding: 0 2px;
+}
+.radio-input{
+    display: block;
+}
+
+.radio-label{
+    display: block;
+}
+
 @media (min-width:100px)  {
     .content{
         flex-direction: column;
@@ -181,7 +192,6 @@ footer{
 }
 
 @media (min-width:1326px)  {
-    /* tablet, landscape iPad, lo-res laptops ands desktops */
     .content{
         flex-direction: row;
     }
@@ -194,15 +204,3 @@ footer{
         width: 100%;
     }
 }
-
-.radio-buttons > p{
-    padding: 0 2px;
-}
-.radio-input{
-    display: block;
-}
-
-.radio-label{
-    display: block;
-}
-
