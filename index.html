@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="table.css">
     <link rel="stylesheet" href="button.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="animate.css">
     <!--    Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
@@ -120,6 +120,7 @@
 
            document.addEventListener('DOMContentLoaded', function(){
                document.querySelector('#clearButton').addEventListener('click', clear);
+               $(document).animate("fadeIn");
            });
 
 
@@ -128,7 +129,7 @@
     <div class="wrapper">
 
 
-    <header class="header">
+    <header class="header animated fadeInDown">
         <span>Вариант 212013</span>
         <span class="student-name">Arthur Kupriyanov, P3112</span>
     </header>
@@ -185,8 +186,8 @@
             </svg>
         </div>
 
-        <form class="data-send-form" id="form" oninput="onInpChange()">
-            <div class="form-inputs">
+        <form class="data-send-form " id="form" oninput="onInpChange()">
+            <div class="form-inputs ">
 
                 <label for="y-value-select"><strong>Y: </strong></label>
                 <input id="y-value-select" name="y_value" value="" type="text" placeholder="-3 ... 5" />
@@ -202,7 +203,7 @@
 
 
             </div>
-            <div class="x-buttons centered" id="x_value_select">
+            <div class="x-buttons centered " id="x_value_select">
                 <p style="margin-top: 7px"><strong>X VALUE: </strong></p>
 
                 <div class="x-buttons__inner">
@@ -226,18 +227,18 @@
                 </div>
             </div>
 
-            <div class="form-buttons">
+            <div class="form-buttons ">
                 <button class="send-button" type="submit" id="submitButton">Отправить</button>
                 <button class="clear-button" type="button" id="clearButton">Очистить</button>
             </div>
             <span id="error-log" style="color: red"> </span>
-            <div class="img-wrapper" >
+            <div class="img-wrapper " >
                 <img src="resources/default.jpg" id="menhera" style="width: 250px; height: 200px" alt=""/>
             </div>
 
         </form>
 
-        <div class="table-wrapper" style="overflow-x: auto;" id="ans">
+        <div class="table-wrapper " style="overflow-x: auto;" id="ans">
 
             <div class="table" style="">
                 <div class="table-header" style="overflow-x: auto">
@@ -252,7 +253,7 @@
         </div>
     </div>
 
-        <footer>
+        <footer class="animated fadeInUp">
             <div class="centered">
                 <span class="student-name-footer">&copy;Arthur Kupriyanov 2019</span>
                 <p class="github-icon">

@@ -249,13 +249,13 @@ footer{
 }
 .coor-text {
     fill-opacity: 0;
-    animation: full-opacity-anim 1s 3s linear forwards;
+    animation: full-opacity-anim 1s 1s linear forwards;
 }
 
 .coor-line {
     stroke-dasharray: 100;
     stroke-dashoffset: 100;
-    animation: dash 3s 3s linear forwards;
+    animation: dash 3s 1s linear forwards;
 
 }
 
@@ -263,32 +263,32 @@ path {
     fill-opacity: 0;
     stroke-dasharray: 190;
     stroke-dashoffset: 190;
-    animation: dash 3s 3s linear forwards;
+    animation: dash 1s 1s linear forwards;
 }
 
 polygon{
     fill-opacity: 0;
     stroke-dasharray: 280;
     stroke-dashoffset: 280;
-    animation: full-opacity-anim 3s 3s linear forwards;
+    animation: full-opacity-anim 2s 1s linear forwards;
 }
 
 .triangle-figure {
     fill-opacity: 0;
     stroke-dasharray: 280;
     stroke-dashoffset: 280;
-    animation: dash 3s 3s linear forwards;
+    animation: dash 2s 1s linear forwards;
 }
 
 .rectangle-figure {
     fill-opacity: 0;
     stroke-dasharray: 300;
     stroke-dashoffset: 300;
-    animation: dash 3s 3s linear forwards;
+    animation: dash 2s 1s linear forwards;
 }
 
 .axis {
     stroke-dasharray: 300;
     stroke-dashoffset: 300;
-    animation: dash 3s linear forwards;
+    animation: dash 1s linear forwards;
 }
