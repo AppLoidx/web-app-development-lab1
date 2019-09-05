@@ -22,14 +22,20 @@
 
         const checkArea = function(){
             let yStr = $("#y-value-select").val().replace(",",".");
-            let x = Number($("input[name=x_value]:checked").val());
+            let xValue = 0;
+            $('.x-button').each(function () {
+                if ($(this).hasClass('x-button-active')){
+                    xValue = $(this).find('span').text();
+                }
+            });
+            let x = xValue;
             let y = Number(yStr);
             let r = Number($("#r-value-select").val());
 
             return (x >= -r / 2 && x <= 0 && y <= r && y >= 0) || (y >= (-x / 2 - r / 2) && y <= 0 && x <= 0) || ((x * x + y * y) <= r * r /4 && x >= 0 && y >= 0);
         };
 
-        const onYInpChange = function(){
+        const onInpChange = function(){
             let elemY = $("#y-value-select");
 
             let dotTarget = $("#target-dot");
@@ -46,7 +52,15 @@
                    elemY.removeClass().addClass("is-valid");
 
                    let elemR = $("#r-value-select");
-                   let calculatedX = 2 * (Number($("input[name=x_value]:checked").val()) * 50 / Number(elemR.val())) + 150;
+                   let xValue = 0;
+                   $('.x-button').each(function () {
+                       if ($(this).hasClass('x-button-active')){
+                           xValue = $(this).find('span').text();
+                       }
+                   });
+
+                   console.log(xValue);
+                   let calculatedX = 2 * (Number(xValue) * 50 / Number(elemR.val())) + 150;
                    let calculatedY = -(((Number(elemY.val().replace(",",".")) * 50 * 2) / Number(elemR.val())) - 150);
 
                    dotTarget.attr("r", 3);
@@ -65,12 +79,21 @@
 
            const submit = function(e) {
                 e.preventDefault();
-                if (!onYInpChange()){
+                if (!onInpChange()){
                     document.querySelector('#error-log').textContent = "Значение Y должно быть в диапазоне [-3;5]";
                     return;
                 }
 
                    const formData = new FormData(document.querySelector('#form'));
+                   let xValue = 0;
+                   $('.x-button').each(function () {
+                      if ($(this).hasClass('x-button-active')){
+                          xValue = $(this).find('span').text();
+                      }
+                   });
+
+                   formData.append("x_value", xValue);
+
                    fetch('php/check.php', {
                        method: 'POST',
                        body: formData,
@@ -162,7 +185,7 @@
             </svg>
         </div>
 
-        <form class="data-send-form" id="form" oninput="onYInpChange()">
+        <form class="data-send-form" id="form" oninput="onInpChange()">
             <div class="form-inputs">
 
                 <label for="y-value-select"><strong>Y: </strong></label>
@@ -181,15 +204,6 @@
             </div>
             <div class="x-buttons centered" id="x_value_select">
                 <p style="margin-top: 7px"><strong>X VALUE: </strong></p>
-<!--                <p><label for="radio-button-1" class="radio-label">-4 </label><input class="radio-input" id="radio-button-1" name="x_value" type="radio" value="-4"></p>-->
-<!--                <p><label for="radio-button-2" class="radio-label">-3 </label><input class="radio-input" id="radio-button-2" name="x_value" type="radio" value="-3"></p>-->
-<!--                <p><label for="radio-button-3" class="radio-label">-2 </label><input class="radio-input" id="radio-button-3" name="x_value" type="radio" value="-2" checked></p>-->
-<!--                <p><label for="radio-button-4" class="radio-label">-1 </label><input class="radio-input" id="radio-button-4" name="x_value" type="radio" value="-1"></p>-->
-<!--                <p><label for="radio-button-5" class="radio-label">0 </label><input  class="radio-input" id="radio-button-5" name="x_value" type="radio" value="0" ></p>-->
-<!--                <p><label for="radio-button-6" class="radio-label">1 </label><input  class="radio-input" id="radio-button-6" name="x_value" type="radio" value="1" ></p>-->
-<!--                <p><label for="radio-button-7" class="radio-label">2 </label><input  class="radio-input" id="radio-button-7" name="x_value" type="radio" value="2" ></p>-->
-<!--                <p><label for="radio-button-8" class="radio-label">3 </label><input  class="radio-input" id="radio-button-8" name="x_value" type="radio" value="3" ></p>-->
-<!--                <p><label for="radio-button-9" class="radio-label">4 </label><input  class="radio-input" id="radio-button-9" name="x_value" type="radio" value="4" ></p>-->
 
                 <div class="x-buttons__inner">
                     <p><div class="x-button"><span>-4</span><svg><polyline class="o1" points="0 0, 50 0, 50 35, 0 35, 0 0"></polyline><polyline class="o2" points="0 0, 50 0, 50 35, 0 35, 0 0"></polyline></svg></div></p>
@@ -200,7 +214,7 @@
 
                 <div class="x-buttons__inner">
                     <p><div class="x-button"><span>-1</span><svg><polyline class="o1" points="0 0, 50 0, 50 35, 0 35, 0 0"></polyline><polyline class="o2" points="0 0, 50 0, 50 35, 0 35, 0 0"></polyline></svg></div></p>
-                    <p><div class="x-button"><span>0</span><svg><polyline class="o1" points="0 0, 50 0, 50 35, 0 35, 0 0"></polyline><polyline class="o2" points="0 0, 50 0, 50 35, 0 35, 0 0"></polyline></svg></div></p>
+                    <p><div class="x-button x-button-active"><span>0</span><svg><polyline class="o1" points="0 0, 50 0, 50 35, 0 35, 0 0"></polyline><polyline class="o2" points="0 0, 50 0, 50 35, 0 35, 0 0"></polyline></svg></div></p>
                     <p><div class="x-button"><span>1</span><svg><polyline class="o1" points="0 0, 50 0, 50 35, 0 35, 0 0"></polyline><polyline class="o2" points="0 0, 50 0, 50 35, 0 35, 0 0"></polyline></svg></div></p>
 
                 </div>
@@ -251,5 +265,19 @@
         </footer>
     </div>
 
+    <script>
+        $('.x-button').each(function () {
+            this.addEventListener('click', function () {
+
+                $('.x-button').each(function () {
+                  if ($(this).hasClass("x-button-active")){
+                      $(this).toggleClass("x-button-active");
+                  }
+                });
+                $(this).toggleClass("x-button-active");
+                onInpChange();
+            })
+        })
+    </script>
 </body>
 </html>
