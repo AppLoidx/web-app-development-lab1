@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+.x-button {
+  margin: 5px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.x-button svg {
+  height: 35px;
+  width: 50px;
+  fill: none;
+  stroke-width: 5;
+}
+.x-button svg .o1 {
+  stroke: rgba(220, 20, 60, 0.7);
+  fill: rgba(255, 23, 70, 0);
+  transition: all 1s ease-in-out;
+}
+.x-button svg .o2 {
+  stroke: white;
+  stroke-dasharray: 20 420;
+  stroke-dashoffset: 20;
+  transition: all 1s ease-in-out;
+}
+.x-button span {
+  position: absolute;
+  margin: auto 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.x-button:hover {
+  transition: color 0.5s ease-in-out;
+  color: white;
+}
+.x-button:hover .o1 {
+  fill: #DC143C;
+}
+.x-button:hover .o2 {
+  stroke-dashoffset: -420;
+}
+
+/*# sourceMappingURL=button.css.map */
