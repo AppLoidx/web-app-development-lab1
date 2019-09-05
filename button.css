@@ -41,4 +41,10 @@
   stroke-dashoffset: -420;
 }
 
+.x-button-active {
+  transition: all 1s ease-in-out;
+  background-color: #DC143C;
+  color: white;
+}
+
 /*# sourceMappingURL=button.css.map */

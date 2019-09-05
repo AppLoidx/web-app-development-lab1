@@ -50,3 +50,9 @@
     }
   }
 }
+
+.x-button-active {
+  transition: background-color 1s ease-in-out;
+  background-color: #DC143C;
+  color: white;
+}
