@@ -153,15 +153,22 @@ footer{
     transition: all 1s;
 }
 
-.radio-buttons > p{
-    padding: 0 2px;
-}
-.radio-input{
-    display: block;
+.x-buttons {
+    display: flex;
+    flex-direction: column;
 }
 
-.radio-label{
-    display: block;
+.x-buttons__inner {
+    display: flex;
+    flex-direction: row;
+}
+
+.x-buttons__inner > p > button {
+    background-color: black;
+    color: white;
+    width: 50px;
+    margin: 5px;
+    border-radius: 15%;
 }
 
 @media (min-width:100px)  {

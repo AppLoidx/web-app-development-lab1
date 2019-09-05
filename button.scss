@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+
+
+.x-button {
+  margin: 5px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  svg {
+    height: 35px;
+    width: 50px;
+    fill: none;
+    stroke-width: 5;
+
+    .o1 {
+      stroke: rgba(#DC143C, 0.7);
+      fill: rgba(255, 23, 70, 0);
+      transition: all 1s ease-in-out;
+    }
+
+    .o2 {
+      stroke: white;
+      stroke-dasharray: 20 420;
+      stroke-dashoffset: 20;
+      transition: all 1s ease-in-out;
+    }
+  }
+
+  span {
+    position: absolute;
+    margin: auto 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &:hover {
+    transition: color .5s ease-in-out;
+    color: white;
+    .o1{
+      fill: #DC143C;
+    }
+
+    .o2 {
+      stroke-dashoffset: -420;
+    }
+  }
+}
