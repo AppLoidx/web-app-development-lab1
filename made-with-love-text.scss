@@ -1,0 +1,11 @@
+$width : 180px;
+$height : 80px;
+
+.made-with-love-text {
+  width: $width;
+  height: $height;
+  position: absolute;
+  display: flex;
+
+  overflow: visible;
+}
