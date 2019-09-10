@@ -1,3 +1,8 @@
+
+Тестовая версия : https://se.ifmo.ru/~s264452/web-snapshot-2/
+
+Стабильная версия: https://se.ifmo.ru/~s264452/web/
+
 # 1 лабораторная работа по ПИП
 
 >Без Bootstrap'a тяжко
