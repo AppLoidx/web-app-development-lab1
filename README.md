@@ -1,5 +1,5 @@
 
-Тестовая версия : https://se.ifmo.ru/~s264452/web-snapshot-2/
+Тестовая версия : https://se.ifmo.ru/~s264452/web-snapshot/
 
 Стабильная версия: https://se.ifmo.ru/~s264452/web/
 
