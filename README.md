@@ -7,7 +7,7 @@
 
 >Без Bootstrap'a тяжко
 
-![](https://github.com/AppLoidx/web-app-development-lab1/blob/master/resources/screenshot/2019-07-19_18-07-38.png?raw=true)
+![](https://i.imgur.com/HtVnOPI.png)
 
 ### Вариант:
 
