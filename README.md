@@ -1,7 +1,6 @@
 
-Тестовая версия : https://se.ifmo.ru/~s264452/web-snapshot/
+Exmaple : https://se.ifmo.ru/~s264452/web-snapshot/
 
-Стабильная версия: https://se.ifmo.ru/~s264452/web/
 
 # 1 лабораторная работа по ПИП
 
